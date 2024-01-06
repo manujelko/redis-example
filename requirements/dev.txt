@@ -1,0 +1,6 @@
+-r prod.txt
+-c constraints.txt
+# Your (unconstrained) development requirements: 
+mypy
+pytest
+ruff>=0.1.2
