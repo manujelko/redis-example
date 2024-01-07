@@ -5,7 +5,9 @@ import aioredis
 
 async def main():
     # Connect to Redis
-    redis = aioredis.from_url("redis://localhost", encoding="utf-8", decode_responses=True)
+    redis = aioredis.from_url(
+        "redis://localhost", encoding="utf-8", decode_responses=True
+    )
 
     # Set multiple fields at once
     await redis.hset("myhash", mapping={"field1": "value1", "field2": "value2"})

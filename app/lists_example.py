@@ -1,4 +1,3 @@
-
 import asyncio
 
 import aioredis
@@ -6,7 +5,9 @@ import aioredis
 
 async def main():
     # Connect to Redis
-    redis = aioredis.from_url("redis://localhost", encoding="utf-8", decode_responses=True)
+    redis = aioredis.from_url(
+        "redis://localhost", encoding="utf-8", decode_responses=True
+    )
 
     # Push elements to the end of a list
     await redis.rpush("mylist", "element1", "element2", "element3")

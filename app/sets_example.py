@@ -5,7 +5,9 @@ import aioredis
 
 async def main():
     # Connect to Redis
-    redis = aioredis.from_url("redis://localhost", encoding="utf-8", decode_responses=True)
+    redis = aioredis.from_url(
+        "redis://localhost", encoding="utf-8", decode_responses=True
+    )
 
     # Add elements to a set
     await redis.sadd("myset", "a", "b", "c")

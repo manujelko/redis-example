@@ -5,7 +5,9 @@ import aioredis
 
 async def main():
     # Connect to Redis
-    redis = aioredis.from_url("redis://localhost", encoding="utf-8", decode_responses=True)
+    redis = aioredis.from_url(
+        "redis://localhost", encoding="utf-8", decode_responses=True
+    )
 
     pubsub = redis.pubsub()
     channel = "my-channel"
@@ -13,7 +15,9 @@ async def main():
 
     try:
         while True:
-            message = await pubsub.get_message(ignore_subscribe_messages=True, timeout=1)
+            message = await pubsub.get_message(
+                ignore_subscribe_messages=True, timeout=1
+            )
             if message:
                 print(f"Received: {message['data']}")
     except asyncio.CancelledError:
