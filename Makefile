@@ -2,7 +2,7 @@
 # HELPERS
 # =====================================================================================
 
-# help: print this help message
+## help: print this help message
 .PHONY: help
 help:
 	@echo 'Usage:'
@@ -16,10 +16,12 @@ confirm:
 # REDIS
 # =====================================================================================
 
+## redis: start redis server
 .PHONY: redis
 redis:
 	docker run --rm -it --name my-redis -p 6379:6379 redis
 
+## redis/cli: start redis client
 .PHONY: redis/cli
 redis/cli:
 	redis-cli -h localhost -p 6379
